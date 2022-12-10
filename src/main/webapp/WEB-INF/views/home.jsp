@@ -33,6 +33,10 @@
         <li>${film.copiesInInventory}</li>
      
       </ul>
+      
+      <a href="delete.jsp"></a>
+      <a href="update.jsp"></a>
+      
     </c:when>
     <c:otherwise>
       <p>No Film found</p>

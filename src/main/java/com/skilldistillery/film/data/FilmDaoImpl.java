@@ -18,9 +18,21 @@ import com.skilldistillery.film.entities.Film;
 public class FilmDaoImpl implements FilmDAO {
 
 	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
+	
 	private static final String user = "student";
 	private static final String pass = "student";
 
+	
+	 public FilmDaoImpl() {
+		    try {
+		      Class.forName("com.mysql.cj.jdbc.Driver");
+		    }
+		    catch (ClassNotFoundException e) {
+		      e.printStackTrace();
+		      System.err.println("Error loading MySQL Driver");
+		      throw new RuntimeException("Unable to load MySQL Driver class");
+		    }
+		  }
 	@Override
 	public boolean deleteActor(Actor actor) {
 		Connection conn = null;
@@ -228,8 +240,8 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setString(2, film.getDesc());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getRentDur());
-			stmt.setDouble(5, film.getRepCost());
-			stmt.setInt(6, film.getLength());
+			stmt.setDouble(6, film.getRepCost());
+			stmt.setInt(5, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
 
 			System.out.println(stmt + "*****************");
@@ -333,6 +345,7 @@ public class FilmDaoImpl implements FilmDAO {
 			String sql = "SELECT *" + " FROM film WHERE film.id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
+
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				String title = rs.getString("title");
