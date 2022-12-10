@@ -9,14 +9,6 @@
 <title>Lottery</title>
 </head>
 <body>
-	<h3>Lottery Numbers</h3>
-	<form action="GetNumbers.do" method="GET">
-		<input type="text" name="howmany" value="6" size="2" /> <input
-			type="submit" value="Get Numbers" />
-	</form>
-	<c:forEach var="number" items="${listOfNumbers}">
-      ${number}
-    </c:forEach>
-	<br />
+<h1>Hello Film</h1>
 </body>
 </html>
