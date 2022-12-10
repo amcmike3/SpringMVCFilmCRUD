@@ -15,6 +15,7 @@
       <br>
       <label for="releaseYear">Release Year:</label>
       <input type="text" name="releaseYear" value="">
+      <br>
       <label for="rentDur">Rental Duration:</label>
       <br>
       <input type="text" name="rentDur" value="">
