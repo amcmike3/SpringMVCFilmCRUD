@@ -16,33 +16,6 @@
 			type="submit" value="Submit" />
 	</form>
 	
-	 <c:choose>
-    <c:when test="${! empty film}">
-      <ul>
-        <li>${film.title}</li>
-        <li>${film.desc}</li>
-        <li>${film.releaseYear}</li>
-        <li>${film.langId}</li>
-        <li>${film.rentDur}</li>
-        <li>${film.rate}</li>
-        <li>${film.length}</li>
-        <li>${film.repCost}</li>
-        <li>${film.rating}</li>
-        <li>${film.features}</li>
-        <li>${film.actors}</li>
-        <li>${film.copiesInInventory}</li>
-     
-      </ul>
-      
-      <a href="delete.jsp"></a>
-      <a href="update.jsp"></a>
-      
-    </c:when>
-    <c:otherwise>
-      <p>No Film found</p>
-    </c:otherwise>
-  </c:choose>
-	
 	
 </body>
 </html>

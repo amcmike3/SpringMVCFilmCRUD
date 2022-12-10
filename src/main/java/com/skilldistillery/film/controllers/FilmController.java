@@ -26,13 +26,27 @@ public class FilmController {
 		
 		return mv;
 	}
+	@RequestMapping("create.do")
+	public ModelAndView sendToCreatePage() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("WEB-INF/views/create.jsp");
+		
+		return mv;
+	}
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film) {
 		
 		//TODO finish implementation
 		Film createdFilm = dao.createFilm(film);
+		boolean success = true;
+		if (film != null) {
+			success = false;
+		}
 		ModelAndView mv = new ModelAndView();
-		mv.addObject(createdFilm);
+		mv.addObject("film", createdFilm);
+		mv.addObject("success", success );
+		
 		mv.setViewName("WEB-INF/views/results.jsp");
 		
 		return mv;
@@ -40,7 +54,6 @@ public class FilmController {
 	@RequestMapping(path = "readFilm.do", method = RequestMethod.GET)
 	public ModelAndView readFilm(int id) {
 		
-		//TODO finish implementation
 		ModelAndView mv = new ModelAndView();
 		
 		Film film = dao.findFilmById(id);
@@ -56,7 +69,7 @@ public class FilmController {
 		
 		boolean success = dao.updateFilm(film);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject(success);
+		mv.addObject("success", success);
 		mv.setViewName("WEB-INF/views/results.jsp");
 		
 		return mv;
@@ -67,8 +80,9 @@ public class FilmController {
 		//TODO finish implementation
 		
 		boolean success = dao.deleteFilm(film);
+		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject(success);
+		mv.addObject("success", success);
 		mv.setViewName("WEB-INF/views/results.jsp");
 		
 		return mv;

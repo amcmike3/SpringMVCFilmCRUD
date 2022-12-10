@@ -21,8 +21,19 @@
 				<li>${film.rate}</li>
 				<li>${film.length}</li>
 				<li>${film.repCost}</li>
+				
+				
+				<form action="deleteFilm.do?id=${film.id }">
+				<label> Check the box to delete film </label>
+				<input type="checkbox" name="film" value=${film } />
+				<input type="submit" value="Submit"/> 
+
+				</form>
 
 			</ul>
+		</c:when>
+		<c:when test="${! success }">
+			<p>Film not created</p>
 		</c:when>
 		<c:otherwise>
 			<p>No Film found</p>
