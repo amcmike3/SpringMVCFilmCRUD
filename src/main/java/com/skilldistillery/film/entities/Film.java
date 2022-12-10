@@ -8,6 +8,35 @@ public class Film {
 	private String title;
 	private String desc;
 	private short releaseYear;
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+
+	public String getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+
+	public Object getCopiesInInventory() {
+		return copiesInInventory;
+	}
+
+
+	public void setCopiesInInventory(Object copiesInInventory) {
+		this.copiesInInventory = copiesInInventory;
+	}
+
 	private int langId;
 	private String language;
 	private int rentDur;
