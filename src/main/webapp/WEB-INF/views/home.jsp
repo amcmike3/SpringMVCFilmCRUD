@@ -6,9 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lottery</title>
+<title>Film ID</title>
 </head>
 <body>
-<h1>Hello Film</h1>
+
+	<h1>Please Enter Film ID Below:</h1>
+	<form action="home.do" method="GET">
+		<input type="text" name="howmany" value="" size="2" /> <input
+			type="submit" value="Submit" />
+	</form>
+	
 </body>
 </html>
