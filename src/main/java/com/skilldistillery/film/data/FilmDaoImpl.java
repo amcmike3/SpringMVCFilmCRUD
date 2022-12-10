@@ -228,8 +228,8 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setString(2, film.getDesc());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getRentDur());
-			stmt.setDouble(5, film.getRepCost());
-			stmt.setInt(6, film.getLength());
+			stmt.setDouble(6, film.getRepCost());
+			stmt.setInt(5, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
 
 			System.out.println(stmt + "*****************");

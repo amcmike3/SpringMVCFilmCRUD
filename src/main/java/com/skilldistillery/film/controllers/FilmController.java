@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.FilmDAO;
-import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -37,14 +37,15 @@ public class FilmController {
 		
 		return mv;
 	}
-	@RequestMapping(path= "readFilm.do", method = RequestMethod.GET)
+	@RequestMapping(path = "readFilm.do", method = RequestMethod.GET)
 	public ModelAndView readFilm(int id) {
 		
 		//TODO finish implementation
+		ModelAndView mv = new ModelAndView();
 		
 		Film film = dao.findFilmById(id);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject(film);
+		System.out.println("**********************" + film);
+		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/views/results.jsp");
 		
 		return mv;
