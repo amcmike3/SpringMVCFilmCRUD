@@ -19,5 +19,6 @@ public interface FilmDAO {
 	public List<Actor> findActorsByFilmId(int filmId);
 	public String findFilmGenreByFilmId(int filmId);
 	public String findFilmLanguage(int filmId);
+	public boolean updateFilm(Film film);
 
 }

@@ -20,26 +20,24 @@ public class FilmDaoImpl implements FilmDAO {
 	private static final String url = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
 	private static final String user = "student";
 	private static final String pass = "student";
-	
+
 	@Override
 	public boolean deleteActor(Actor actor) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			
+
 			String sql = "DELETE FROM film_actor WHERE actor_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
 			int updateCount = stmt.executeUpdate();
-			
-			
+
 			sql = "DELETE FROM actor WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
 			updateCount = stmt.executeUpdate();
-			
-			
+
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -54,26 +52,24 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public boolean deleteFilm(Film film) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			
+
 			String sql = "DELETE FROM film_actor WHERE film_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getId());
 			int updateCount = stmt.executeUpdate();
-			
-			
+
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, film.getId());
 			updateCount = stmt.executeUpdate();
-			
-			
+
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -130,8 +126,45 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 		return true;
 	}
-	
-	
+
+	@Override
+	public boolean updateFilm(Film film) {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(url, user, pass);
+			conn.setAutoCommit(false); // START TRANSACTION
+
+			String sql = "UPDATE film (title, description, release_year, rental_duration, rental_rate, length, replacement_cost, language_id) "
+					+ " VALUES (?,?,?,?,?,?,?)";
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDesc());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getRentDur());
+			stmt.setDouble(5, film.getRepCost());
+			stmt.setInt(6, film.getLength());
+			stmt.setDouble(7, film.getRepCost());
+
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				conn.commit(); // COMMIT TRANSACTION
+
+			}
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} // ROLLBACK TRANSACTION ON ERROR
+				catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+
 	// TODO create update film method
 
 	@Override
@@ -177,21 +210,16 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 		return actor;
 	}
-	
+
 	@Override
-	
+
 	public Film createFilm(Film film) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			
-			
-			
-			
-			
-			
-			String sql = "INSERT INTO film (title, description, release_year, rental_duration, rental_rate, length, replacement_cost, language_id) " 
+
+			String sql = "INSERT INTO film (title, description, release_year, rental_duration, rental_rate, length, replacement_cost, language_id) "
 					+ " VALUES (?,?,?,?,?,?,?, 1)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
@@ -201,7 +229,7 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setDouble(5, film.getRepCost());
 			stmt.setInt(6, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
-			
+
 			System.out.println(stmt + "*****************");
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
@@ -209,7 +237,7 @@ public class FilmDaoImpl implements FilmDAO {
 				if (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setId(newFilmId);
-					}
+				}
 			} else {
 				film = null;
 			}
@@ -445,7 +473,7 @@ public class FilmDaoImpl implements FilmDAO {
 		}
 		return genre;
 	}
-	
+
 	@Override
 	public String findFilmLanguage(int filmId) {
 		String language = "";
