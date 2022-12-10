@@ -50,7 +50,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<p>Film not found or deleted</p>
+			<p>Film not found, updated, or deleted</p>
 		</c:otherwise>
 	</c:choose>
 
