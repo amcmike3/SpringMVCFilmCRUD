@@ -2,8 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>States</title>
+<title>Update Film</title>
 </head>
 <body>
+
+<form action="updateFilm.do" method="POST">
+      <input type="submit" value="Delete Film">
+    </form>
+    
 </body>
 </html>

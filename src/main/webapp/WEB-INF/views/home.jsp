@@ -29,7 +29,6 @@
         <li>${film.repCost}</li>
         <li>${film.rating}</li>
         <li>${film.features}</li>
-        <li>${film.genre}</li>
         <li>${film.actors}</li>
         <li>${film.copiesInInventory}</li>
      
