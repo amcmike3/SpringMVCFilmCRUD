@@ -26,7 +26,7 @@ public class FilmController {
 		
 		return mv;
 	}
-	@RequestMapping("createFilm.do")
+	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film) {
 		
 		//TODO finish implementation
@@ -44,13 +44,12 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		
 		Film film = dao.findFilmById(id);
-		System.out.println("**********************" + film);
 		mv.addObject("film", film);
 		mv.setViewName("WEB-INF/views/results.jsp");
 		
 		return mv;
 	}
-	@RequestMapping("updateFilm.do")
+	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
 	public ModelAndView updateFilm(Film film) {
 		
 		//TODO finish implementation
