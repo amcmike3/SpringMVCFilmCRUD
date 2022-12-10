@@ -134,8 +134,9 @@ public class FilmDaoImpl implements FilmDAO {
 			conn = DriverManager.getConnection(url, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
 
-			String sql = "UPDATE film (title, description, release_year, rental_duration, rental_rate, length, replacement_cost, language_id) "
-					+ " VALUES (?,?,?,?,?,?,?)";
+			String sql = "UPDATE film \n"
+					+ "SET title = ?, description = ?, release_year = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, language_id = ? \n"
+					+ "WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDesc());
@@ -144,6 +145,7 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setDouble(5, film.getRepCost());
 			stmt.setInt(6, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
+			stmt.setInt(8, film.getId());
 
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
