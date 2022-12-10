@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Film ID</title>
+<title>Film Keyword</title>
 </head>
 <body>
 
-	<h1>Please Enter Film ID Below:</h1>
-	<form action="readFilm.do" method="GET">
-		<input type="text" name="id" value=""/> <input
+	<h1>Search Film by Keyword Below:</h1>
+	<form action="readFilmByKeyword.do" method="GET">
+		<input type="text" name="keyword" value=""/> <input
 			type="submit" value="Submit" />
 	</form>
 	

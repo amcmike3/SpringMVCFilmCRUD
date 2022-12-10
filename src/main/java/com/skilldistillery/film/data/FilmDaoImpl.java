@@ -147,17 +147,20 @@ public class FilmDaoImpl implements FilmDAO {
 			conn.setAutoCommit(false); // START TRANSACTION
 
 			String sql = "UPDATE film \n"
-					+ "SET title = ?, description = ?, release_year = ?, rental_duration = ?, rental_rate = ?, length = ?, replacement_cost = ?, language_id = ? \n"
+					+ "SET title = ?, description = ?, release_year = ?, rental_duration = ?, rental_rate = ?, "
+					+ "length = ?, replacement_cost = ? \n"
 					+ "WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDesc());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getRentDur());
-			stmt.setDouble(5, film.getRepCost());
+			stmt.setDouble(5, film.getRate());
 			stmt.setInt(6, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
 			stmt.setInt(8, film.getId());
+			
+			System.out.println(stmt + "*******************");
 
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
@@ -240,7 +243,7 @@ public class FilmDaoImpl implements FilmDAO {
 			stmt.setString(2, film.getDesc());
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getRentDur());
-			stmt.setDouble(6, film.getRepCost());
+			stmt.setDouble(6, film.getRate());
 			stmt.setInt(5, film.getLength());
 			stmt.setDouble(7, film.getRepCost());
 
@@ -265,7 +268,8 @@ public class FilmDaoImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + film);
+			System.err.println("Error inserting film");
+			film = null;
 		}
 		return film;
 	}
