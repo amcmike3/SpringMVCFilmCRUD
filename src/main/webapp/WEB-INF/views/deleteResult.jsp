@@ -10,8 +10,9 @@
 </head>
 <body>
 
+
 	<c:choose>
-		<c:when test="${! empty film}">
+		<c:when test="${! empty film and success}">
 			<ul>
 				<li>${film.id }</li>
 				<li>${film.title}</li>
@@ -22,8 +23,6 @@
 				<li>${film.rate}</li>
 				<li>${film.length}</li>
 				<li>${film.repCost}</li>
-				<li>${film.actors }</li>
-				<li>${film.genre}</li>
 
 
 				<form action="deleteFilm.do?id=${film.id }">
@@ -40,10 +39,19 @@
 
 			</ul>
 		</c:when>
+		<c:when test="${success}">
+			<ul>
+				
+				<p>Film deleted</p>
+
+			</ul>
+		</c:when>
 
 		<c:otherwise>
-			<p>Film not found, created, or updated</p>
+			<p>Film not found or deleted</p>
 		</c:otherwise>
 	</c:choose>
+	
+	<a href="index.html">Home</a>
 </body>
 </html>
