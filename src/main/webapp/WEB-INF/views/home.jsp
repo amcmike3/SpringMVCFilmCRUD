@@ -11,8 +11,8 @@
 <body>
 
 	<h1>Please Enter Film ID Below:</h1>
-	<form action="home.do" method="GET">
-		<input type="text" name="howmany" value="" size="2" /> <input
+	<form action="readFilm.do" method="GET">
+		<input type="text" name="id" value=""/> <input
 			type="submit" value="Submit" />
 	</form>
 	
