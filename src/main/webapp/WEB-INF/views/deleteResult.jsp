@@ -23,6 +23,8 @@
 				<li>${film.rate}</li>
 				<li>${film.length}</li>
 				<li>${film.repCost}</li>
+				<li>${film.actors }</li>
+				<li>${film.genre}</li>
 
 
 				<form action="deleteFilm.do?id=${film.id }">
@@ -41,7 +43,7 @@
 		</c:when>
 		<c:when test="${success}">
 			<ul>
-				
+
 				<p>Film deleted</p>
 
 			</ul>
@@ -51,7 +53,7 @@
 			<p>Film not found or deleted</p>
 		</c:otherwise>
 	</c:choose>
-	
+
 	<a href="index.html">Home</a>
 </body>
 </html>

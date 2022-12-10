@@ -23,6 +23,8 @@
 					<li>${film.rate}</li>
 					<li>${film.length}</li>
 					<li>${film.repCost}</li>
+					<li>${film.actors }</li>
+					<li>${film.genre}</li>
 
 
 					<form action="deleteFilm.do?id=${film.id }">
