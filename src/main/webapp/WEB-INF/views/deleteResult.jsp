@@ -47,6 +47,7 @@
 				<p>Film deleted</p>
 
 			</ul>
+			<a href="index.html">Home</a>
 		</c:when>
 
 		<c:otherwise>

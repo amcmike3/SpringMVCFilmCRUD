@@ -9,14 +9,14 @@ public class Actor {
 	private String lastName;
 	private List<Film> films;
 	public Actor() {};
-	public Actor(int id, String firstName, String lastName) {
-		this.id = id;
+	public Actor( String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	};
+	
 
-	public Actor(int id, String firstName, String lastName, List<Film> films) {
-		this(id, firstName, lastName);
+	public Actor( String firstName, String lastName, List<Film> films) {
+		this( firstName, lastName);
 		this.films = films;
 	}
 	

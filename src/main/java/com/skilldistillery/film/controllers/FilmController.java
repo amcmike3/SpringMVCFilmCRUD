@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.FilmDAO;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -58,7 +59,6 @@ public class FilmController {
 	@RequestMapping(path = "createFilm.do", method = RequestMethod.POST)
 	public ModelAndView createFilm(Film film) {
 
-		// TODO finish implementation
 		Film createdFilm = dao.createFilm(film);
 
 		ModelAndView mv = new ModelAndView();
@@ -84,7 +84,6 @@ public class FilmController {
 	@RequestMapping(path = "update.do", method = RequestMethod.POST)
 	public ModelAndView sendToUpdatePage(int id) {
 
-		// TODO finish implementation
 		Film film = dao.findFilmById(id);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
@@ -97,7 +96,6 @@ public class FilmController {
 	public ModelAndView updateFilm(int id, String title, String desc, short releaseYear, int rentDur, int length,
 			double repCost) {
 
-		// TODO finish implementation
 		Film film = dao.findFilmById(id);
 		film.setTitle(title);
 		film.setDesc(desc);
@@ -119,7 +117,6 @@ public class FilmController {
 	@RequestMapping("deleteFilm.do")
 	public ModelAndView deleteFilm(int id) {
 
-		// TODO finish implementation
 
 		boolean success = dao.deleteFilm(dao.findFilmById(id));
 
@@ -129,12 +126,66 @@ public class FilmController {
 
 		return mv;
 	}
-//	@RequestMapping("createActor.do")
-//	public ModelAndView createActor(Actor actor) {
+	
+	//Start of logic for actor 
+	
+	@RequestMapping("createActor.do")
+	public ModelAndView sendToCreateActor() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/views/createActor.jsp");
+		return mv;
+	}
+	@RequestMapping("createAnActor.do")
+	public ModelAndView createActor(String firstName, String lastName) {
+		
+		
+		Actor daoActor = dao.createActor(new Actor(firstName, lastName));
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("actor", daoActor);
+		mv.setViewName("WEB-INF/views/actorResults.jsp");
+		
+		return mv;
+	}
+
+	@RequestMapping("deleteActor.do")
+	public ModelAndView deleteActor(int id) {
+
+		boolean success = dao.deleteActor(dao.findActorById(id));
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("success", success);
+		mv.setViewName("WEB-INF/views/deleteActorResults.jsp");
+
+		return mv;
+	}
+	
+	@RequestMapping("findActor.do")
+	public ModelAndView findActorById() {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/views/findActor.jsp");
+		
+		return mv;
+	}
+	
+	@RequestMapping("findActorById.do")
+	public ModelAndView findActorById(int id) {
+		Actor actor = dao.findActorById(id);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("actor", actor);
+		mv.setViewName("WEB-INF/views/actorResults.jsp");
+		
+		return mv;
+	}
+//	@RequestMapping("updateActor.do")
+//	public ModelAndView updateActor(Actor actor) {
 //		
 //		//TODO finish implementation
 //		
-//		dao.createActor(actor);
+//		dao.updateActor(actor);
 //		ModelAndView mv = new ModelAndView();
 //		mv.setViewName("WEB-INF/views/results.jsp");
 //		
@@ -151,28 +202,7 @@ public class FilmController {
 //		
 //		return mv;
 //	}
-//	@RequestMapping("updateActor.do")
-//	public ModelAndView updateActor(Actor actor) {
-//		
-//		//TODO finish implementation
-//		
-//		dao.updateActor(actor);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("WEB-INF/views/results.jsp");
-//		
-//		return mv;
-//	}
-//	@RequestMapping("deleteAcotor.do")
-//	public ModelAndView deleteActor(Actor actor) {
-//		
-//		//TODO finish implementation
-//		
-//		dao.deleteActor(actor);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("WEB-INF/views/results.jsp");
-//		
-//		return mv;
-//	}
+
 //	
 
 }
