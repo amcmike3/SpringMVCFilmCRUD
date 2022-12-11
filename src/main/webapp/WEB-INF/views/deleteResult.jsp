@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>States</title>
+<title>Film Results</title>
 </head>
 <body>
 
@@ -47,10 +47,11 @@
 				<p>Film deleted</p>
 
 			</ul>
+			<a href="index.html">Home</a>
 		</c:when>
 
 		<c:otherwise>
-			<p>Film not found or deleted</p>
+			<p>Film not found, updated, or deleted</p>
 		</c:otherwise>
 	</c:choose>
 

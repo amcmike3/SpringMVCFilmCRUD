@@ -194,6 +194,8 @@ public class FilmDaoImpl implements FilmDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, actor.getFirstName());
 			stmt.setString(2, actor.getLastName());
+			System.out.println(actor.getLastName());
+			System.out.println(stmt);
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
@@ -223,7 +225,9 @@ public class FilmDaoImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + actor);
+			sqle.printStackTrace();
+			System.err.println("Error inserting film");
+			actor = null;
 		}
 		return actor;
 	}
@@ -268,6 +272,7 @@ public class FilmDaoImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
+			sqle.printStackTrace();
 			System.err.println("Error inserting film");
 			film = null;
 		}
