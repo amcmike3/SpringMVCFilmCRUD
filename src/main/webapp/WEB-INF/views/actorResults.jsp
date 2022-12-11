@@ -18,17 +18,17 @@
 				<li>${actor.films }</li>
 			</ul>
 
-			<form action="deleteActor.do?id=${film.id }">
+			<form action="deleteActor.do?id=${actor.id }">
 				<label> Delete Actor by id: </label> <input type="text" name="id"
 					value=${actor.id } /> <input type="submit" value="Submit" />
 
 			</form>
 
-		<%-- 	<form action="updateActor.do?id=${film.id }" method="post">
+			<form action="updateActorPage.do?id=${actor.id }" method="post">
 				<label> Edit Actor by id: </label> <input type="text" name="id"
 					value=${actor.id } /> <input type="submit" value="Submit" />
 
-			</form> --%>
+			</form>
 
 		</c:when>
 		<c:otherwise>

@@ -180,29 +180,33 @@ public class FilmController {
 		
 		return mv;
 	}
-//	@RequestMapping("updateActor.do")
-//	public ModelAndView updateActor(Actor actor) {
-//		
-//		//TODO finish implementation
-//		
-//		dao.updateActor(actor);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("WEB-INF/views/results.jsp");
-//		
-//		return mv;
-//	}
-//	@RequestMapping("readActor.do")
-//	public ModelAndView readActor(int id) {
-//		
-//		//TODO finish implementation
-//		
-//		dao.findActorById(id);
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("WEB-INF/views/results.jsp");
-//		
-//		return mv;
-//	}
+	
+	@RequestMapping("updateActorPage.do")
+	public ModelAndView sendToUpdateActorPage(int id) {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("actor", dao.findActorById(id));
+		mv.setViewName("WEB-INF/views/updateActor.jsp");
+		
+		return mv;
+	}
+	
+	@RequestMapping("updateActor.do")
+	public ModelAndView updateActor(int id, String firstName, String lastName) {
+		
+		//TODO finish implementation
+		Actor actor = dao.findActorById(id);
+		actor.setFirstName(firstName);
+		actor.setLastName(lastName);
+		boolean success = dao.updateActor(actor);
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("success", success);
+		mv.addObject("actor", actor);
+		mv.setViewName("WEB-INF/views/deleteActorResults.jsp");
+		
+		return mv;
+	}
 
-//	
 
 }
