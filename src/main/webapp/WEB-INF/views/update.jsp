@@ -15,10 +15,9 @@
       <input type="text" name="desc" value="${film.desc }">
       <br>
       <label for="releaseYear">Release Year:</label>
-      
       <input type="text" name="releaseYear" value="${film.releaseYear }">
-      <label for="rentDur">Rental Duration:</label>
       <br>
+      <label for="rentDur">Rental Duration:</label>
       <input type="text" name="rentDur" value="${ film.rentDur}">
       <br>
       <label for="length">Length:</label>
