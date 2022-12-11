@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Film</title>
+
+<link rel="stylesheet" href="main.css">
+
 </head>
 <body>
-
+	<h1>Create Film Below:</h1>
 <form action="createFilm.do" method="POST">
       <label for="title">Title:</label>
       <input type="text" name="title" value="">
@@ -17,7 +20,6 @@
       <input type="text" name="releaseYear" value="">
       <br>
       <label for="rentDur">Rental Duration:</label>
-      <br>
       <input type="text" name="rentDur" value="">
       <br>
       <label for="length">Length:</label>

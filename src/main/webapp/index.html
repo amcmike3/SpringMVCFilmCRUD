@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>States</title>
 </head>
+
+
+<meta charset="UTF-8">
+ 
+<title>Film Query</title>
+<link rel="stylesheet" href="main.css">
+</head>
+
 <body>
-<a href="home.do">Find Film ID</a><br/>
 
-<a href="keyword.do">Find Film by Keyword</a><br/>
 
-<a href="create.do">Create Film</a><br/>
 
-<a href="home.do">Delete Film</a><br/>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="home.do">Find Film ID</a>
+  <a href="keyword.do">Find Film by Keyword</a>
+  <a href="create.do">Create Film</a>
+  <a href="home.do">Delete Film</a>
+  <a href="home.do">Update Film</a>
+  <a href="findActor.do">Find Actor by ID</a>
+  <a href="createActor.do">Create Actor</a>
+</div>
 
-<a href="home.do">Update Film</a><br/>
+<div id="main">
+  <button class="openbtn" onclick="openNav()">M E N U</button>
+</div>
 
-<a href="findActor.do">Find actor by id</a><br/>
 
-<a href="createActor.do">Create actor</a>
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
 
 </body>
 </html>

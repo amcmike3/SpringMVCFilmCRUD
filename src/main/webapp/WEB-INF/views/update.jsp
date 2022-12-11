@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Actor</title>
+<title>Create Film</title>
+<link rel="stylesheet" href="main.css">
 </head>
 <body>
 
@@ -14,6 +15,7 @@
       <input type="text" name="desc" value="${film.desc }">
       <br>
       <label for="releaseYear">Release Year:</label>
+      
       <input type="text" name="releaseYear" value="${film.releaseYear }">
       <label for="rentDur">Rental Duration:</label>
       <br>
@@ -30,3 +32,4 @@
 
 </body>
 </html>
+
