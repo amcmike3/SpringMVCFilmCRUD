@@ -43,7 +43,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<p>Film not found, created, or updated</p>
+			<p>Film not found or created</p>
 		</c:otherwise>
 	</c:choose>
 </body>

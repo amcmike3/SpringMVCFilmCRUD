@@ -35,7 +35,7 @@
 
 		</c:when>
 		<c:otherwise>
-			<h1>Actor not created</h1>
+			<h1>Actor not found or created</h1>
 			<a href="createActor.do">Try again</a>
 		</c:otherwise>
 
