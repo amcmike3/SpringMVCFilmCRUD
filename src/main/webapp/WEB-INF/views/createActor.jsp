@@ -11,11 +11,13 @@
 <body>
 	<h1>Create Actor Below:</h1>
 <form action="createAnActor.do" method="POST">
-      <label for="title">First name</label>
-      <input type="text" name="firstName" value="Casey">
+      <label for="title">First Name:</label>
+      <input type="text" name="firstName" value="">
       <br>
-      <label for="desc">Last Name</label>
-      <input type="text" name="lastName" value="Froehlich">
+      <br>
+      <label for="desc">Last Name:</label>
+      <input type="text" name="lastName" value="">
+      <br>
       <br>
       <input type="submit" value="Create Actor">
     </form>

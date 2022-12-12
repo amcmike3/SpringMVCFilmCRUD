@@ -17,24 +17,21 @@ ul {
 }
 
 li {
-	color: b53323;
+	color: #b53323;
 	font-family: andalemono;
 }
-
-/* h5 {
-	color: #797979;
-	font-family: andalemno;
-	font-size: 50px;
-	text-align: center;
-}
- */
+ 
  body {
  background:
 		url("https://cf.shopee.com.my/file/26711ade9a13e84a6c98ddb4b9ce8171");
 	background-position: left;
 	background: url("https://cf.shopee.com.my/file/26711ade9a13e84a6c98ddb4b9ce8171");
-
  }  
+ 
+ p {
+ 	color: #b53323;
+	font-family: andalemono;
+ }
 
 
 
@@ -43,15 +40,29 @@ form {
 		font-family: andalemono;
 	
 }
+input {
+		color: #72fa78;
+		font-family: andalemono;
+}
+
+input:hover {
+		background-color: #72fa78;
+		font-family: andalemono;
+}
+
+
+
+
 
 /* The sidebar menu */
 .sidebar {
-	height: 500%; /* 100% Full-height */
+	
+	height: 100%; /* 100% Full-height */
 	width: 0; /* 0 width - change this with JavaScript */
-	position: fixed; /* Stay in place */
+	position: absolute; /* Stay in place */
 	top: 0;
 	left: 0;
-	background-color: #111; /* Black*/
+	background: url("https://media.istockphoto.com/id/915097804/photo/black-brick-wall-background-texture-dark-masonry.jpg?s=612x612&w=0&k=20&c=6E9gSLZ261VciCcXJvig-Sn0Q-ypvqWnEN7iOgv69hk="); /* Black*/
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 10px; /* Place content 60px from the top */
 	transition: 0.5s;
@@ -71,7 +82,7 @@ form {
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-	color: #0b0f06;
+	color: #72fa78;
 }
 
 /* Position and style the close button (top right corner) */
@@ -86,14 +97,13 @@ form {
 .openbtn {
 	font-size: 20px;
 	font-family: andalemono;
-	cursor: pointer;
+	cursor: grab;
 	color: #b53323;
 	padding: 10px 15px;
-	border: none;
 }
 
 .openbtn:hover {
-	background-color: #e07b39;
+	background-color: #72fa78;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -109,5 +119,7 @@ form {
 	}
 	.sidebar a {
 		font-size: 18px;
+	
+	
 	}
 }
