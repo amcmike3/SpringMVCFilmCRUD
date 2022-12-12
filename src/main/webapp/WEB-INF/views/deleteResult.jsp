@@ -49,7 +49,7 @@
 				<p>Film deleted</p>
 
 			</ul>
-			<a href="index.html">Home</a>
+			<a href="index.html">H O M E</a>
 		</c:when>
 
 		<c:otherwise>
@@ -57,6 +57,6 @@
 		</c:otherwise>
 	</c:choose>
 
-	<a href="index.html">Home</a>
+	<a href="index.html">H O M E</a>
 </body>
 </html>

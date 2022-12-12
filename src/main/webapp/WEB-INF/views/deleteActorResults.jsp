@@ -35,11 +35,11 @@
 		</c:when>
 		<c:when test="${success }">
 		 <h1>Actor Deleted</h1>
-		 <a href="index.html">Home</a>
+		 <a href="index.html">H O M E</a>
 		</c:when >
 		<c:otherwise>
 			<h1>Actor not deleted</h1>
-			<a href="index.html">Home</a>
+			<a href="index.html">H O M E</a>
 		</c:otherwise>
 
 

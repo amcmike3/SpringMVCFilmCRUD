@@ -25,16 +25,16 @@
 				<li>${film.repCost}</li>
 				<li>${film.actors }</li>
 				<li>${film.genre}</li>
-
-
+				<br>
+				
 				<form action="deleteFilm.do?id=${film.id }">
-					<label> Delete film by id: </label> <input type="text" name="id"
+					<label> Delete Film by ID: </label> <input type="text" name="id"
 						value=${film.id } /> <input type="submit" value="Submit" />
 
 				</form>
 
 				<form action="update.do?id=${film.id }" method="post">
-					<label> Edit film by id: </label> <input type="text" name="id"
+					<label> Edit Film by ID: </label> <input type="text" name="id"
 						value=${film.id } /> <input type="submit" value="Submit" />
 
 				</form>
@@ -43,7 +43,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<p>Film not found, created, or updated</p>
+			<p>Film not found, created, or updated.</p>
 		</c:otherwise>
 	</c:choose>
 </body>
