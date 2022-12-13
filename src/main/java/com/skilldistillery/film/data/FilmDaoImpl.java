@@ -51,6 +51,8 @@ public class FilmDaoImpl implements FilmDAO {
 			updateCount = stmt.executeUpdate();
 
 			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
+			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -62,7 +64,10 @@ public class FilmDaoImpl implements FilmDAO {
 			}
 			return false;
 		}
+		
+		
 		return true;
+		
 	}
 
 	@Override
@@ -83,6 +88,8 @@ public class FilmDaoImpl implements FilmDAO {
 			updateCount = stmt.executeUpdate();
 
 			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
+			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -123,6 +130,8 @@ public class FilmDaoImpl implements FilmDAO {
 					updateCount = stmt.executeUpdate();
 				}
 				conn.commit(); // COMMIT TRANSACTION
+				stmt.close();
+				conn.close();
 			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -165,6 +174,8 @@ public class FilmDaoImpl implements FilmDAO {
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				conn.commit(); // COMMIT TRANSACTION
+				stmt.close();
+				conn.close();
 
 			}
 		} catch (SQLException sqle) {
@@ -216,6 +227,8 @@ public class FilmDaoImpl implements FilmDAO {
 				actor = null;
 			}
 			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
+			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
@@ -259,10 +272,13 @@ public class FilmDaoImpl implements FilmDAO {
 					int newFilmId = keys.getInt(1);
 					film.setId(newFilmId);
 				}
+				keys.close();
 			} else {
 				film = null;
 			}
 			conn.commit(); // COMMIT TRANSACTION
+			stmt.close();
+			conn.close();
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			if (conn != null) {
