@@ -170,7 +170,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping("findActorById.do")
+	@RequestMapping(path = "findActorById.do", method = RequestMethod.GET)
 	public ModelAndView findActorById(int id) {
 		Actor actor = dao.findActorById(id);
 		
@@ -181,7 +181,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping("updateActorPage.do")
+	@RequestMapping(path = "updateActorPage.do", method = RequestMethod.POST)
 	public ModelAndView sendToUpdateActorPage(int id) {
 		
 		ModelAndView mv = new ModelAndView();
