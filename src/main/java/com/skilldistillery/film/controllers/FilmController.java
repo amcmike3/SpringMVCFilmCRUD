@@ -191,7 +191,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping("updateActor.do")
+	@RequestMapping(path = "updateActor.do", method = RequestMethod.POST)
 	public ModelAndView updateActor(int id, String firstName, String lastName) {
 		
 		//TODO finish implementation
