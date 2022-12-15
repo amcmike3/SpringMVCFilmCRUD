@@ -161,7 +161,7 @@ public class FilmController {
 		return mv;
 	}
 	
-	@RequestMapping("findActor.do")
+	@RequestMapping(path = "findActor.do", method = RequestMethod.GET)
 	public ModelAndView findActorById() {
 		
 		ModelAndView mv = new ModelAndView();
