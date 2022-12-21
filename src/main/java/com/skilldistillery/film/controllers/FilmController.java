@@ -18,7 +18,7 @@ public class FilmController {
 	@Autowired
 	private FilmDAO dao;
 
-	@RequestMapping("home.do")
+	@RequestMapping(path="home.do")
 	public ModelAndView home() {
 
 		ModelAndView mv = new ModelAndView();

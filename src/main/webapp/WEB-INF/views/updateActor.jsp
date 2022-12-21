@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
+<%@include file="sidebar.html" %>
 <form action="updateActor.do?id=${actor.id }" method="POST">
 		<label>${actor.id }</label>
       <label for="title">First Name</label>

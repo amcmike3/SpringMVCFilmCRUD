@@ -12,7 +12,7 @@
 
 </head>
 <body>
-
+	<%@include file="sidebar.html" %>
 	<h1>Please Enter Film ID Below:</h1>
 	<form action="readFilm.do" method="GET">
 		<input type="text" name="id" value=""/> <input

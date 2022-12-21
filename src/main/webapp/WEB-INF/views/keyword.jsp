@@ -12,7 +12,7 @@
 
 </head>
 <body>
-
+<%@include file="sidebar.html" %>
 	<h1>Search Film by Keyword Below:</h1>
 	<form action="readFilmByKeyword.do" method="GET">
 		<input type="text" name="keyword" value=""/> <input

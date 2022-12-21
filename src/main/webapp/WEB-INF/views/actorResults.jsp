@@ -12,6 +12,7 @@
 
 </head>
 <body>
+<%@include file="sidebar.html" %>
 	<c:choose>
 		<c:when test="${ ! empty actor }">
 			<ul>

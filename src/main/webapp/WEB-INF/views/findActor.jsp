@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
-
+<%@include file="sidebar.html" %>
 	<h1>Please Enter Actor ID Below:</h1>
 	<form action="findActorById.do" method="GET">
 		<input type="text" name="id" value=""/> <input

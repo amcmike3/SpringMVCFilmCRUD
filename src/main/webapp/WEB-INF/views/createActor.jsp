@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<%@include file="sidebar.html" %>
 	<h1>Create Actor Below:</h1>
 <form action="createAnActor.do" method="POST">
       <label for="title">First Name:</label>

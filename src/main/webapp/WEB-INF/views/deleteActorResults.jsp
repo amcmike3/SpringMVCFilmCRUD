@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<%@include file="sidebar.html" %>
 	<c:choose>
 		<c:when test="${ ! empty actor and success}">
 			<ul>

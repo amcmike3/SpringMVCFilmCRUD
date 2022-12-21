@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<%@include file="sidebar.html" %>
 	<h1>Create Film Below:</h1>
 <form action="createFilm.do" method="POST">
       <label for="title">Title:</label>
